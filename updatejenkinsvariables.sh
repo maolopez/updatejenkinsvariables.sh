@@ -26,11 +26,12 @@ JOBS=($JOB_PATH_1 $JOB_PATH_2 $JOB_PATH_3 $JOB_PATH_4 $JOB_PATH_5 $JOB_PATH_6 $J
 for j in ${JOBS[*]}; do
 
 #between </hudson.model.StringParameterDefinition> and </parameterDefinitions>
-
+ 
+ cd $JOB_PATH_$j
  sed -i '/<\/parameterDefinitions>/i <hudson.model.StringParameterDefinition>' config.xml
  sed -i '/<\/parameterDefinitions>/i <name>'$VARIABLE_NAME'</name>' config.xml
  sed -i '/<\/parameterDefinitions>/i <description>'$DESCRIPTION'</description>' config.xml
  sed -i '/<\/parameterDefinitions>/i <defaultValue>'$VALUE'</defaultValue>' config.xml
  sed -i '/<\/parameterDefinitions>/i </hudson.model.StringParameterDefinition>' config.xml
- echo $JOBS 
+ pwd 
 done
