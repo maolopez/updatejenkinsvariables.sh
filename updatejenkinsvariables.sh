@@ -33,5 +33,6 @@ for j in ${JOBS[*]}; do
  sed -i '/<\/parameterDefinitions>/i <description>'$DESCRIPTION'</description>' config.xml
  sed -i '/<\/parameterDefinitions>/i <defaultValue>'$VALUE'</defaultValue>' config.xml
  sed -i '/<\/parameterDefinitions>/i </hudson.model.StringParameterDefinition>' config.xml
+ xmllint --format config.xml --output config.xml
  pwd 
 done
